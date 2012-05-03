@@ -61,9 +61,9 @@ setInterval("displaytime()", 1000)
 </head>
 
 <body>
-
+<div id="index">
 <div id="container">
-	<div style="margin-left:50px;">
+	<div style="margin-left:57px;">
         <ul id="menu">
             <li class="logo">
                 <img style="float:left;" alt="" src="images/menu_left.png"/>
@@ -117,6 +117,6 @@ setInterval("displaytime()", 1000)
         <img style="float:left;" alt="" src="images/menu_right.png"/>
     </div>
 </div><!--end container-->
-
+</div>
 </body>
 </html>

@@ -6,7 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-        body { font-family:Arial, Helvetica, Sans-Serif; font-size:12px; margin:0px 20px;}
+        body { font-family:Arial, Helvetica, Sans-Serif; font-size:12px; margin:0px 20px; background-color: #111;}
         /* menu */
         #menu{ margin:0px; padding:0px; list-style:none; color:#fff; line-height:45px; display:inline-block; float:left; z-index:1000;}
         #menu a { color:#fff; text-decoration:none; }

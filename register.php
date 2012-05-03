@@ -18,7 +18,7 @@ if($_POST && !empty($_POST['username']) && !empty($_POST['pwd']) && !empty($_POS
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login to access the secret files!</title>
+<title>Registration to QuakerCon!</title>
 <link rel="stylesheet" type="text/css" href="css/default.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
