@@ -13,6 +13,7 @@ $membership->confirm_Member();
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/menu.css" />
+<link rel="stylesheet" href="css/default.css" />
 
 <!--[if lt IE 7]>
 <script type="text/javascript" src="js/DD_belatedPNG_0.0.7a-min.js"></script>

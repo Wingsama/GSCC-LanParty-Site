@@ -2,6 +2,13 @@ body {
 font-family: helvetica, arial, sans-serif;
 }
 
+#container{
+position: absolute;
+width: 800px;
+left: 50%;
+margin-left: -400px;
+}
+
 #login {
 text-align: left;
 background: #e3e3e3 url(../images/whiteGradient.png) no-repeat top left;
