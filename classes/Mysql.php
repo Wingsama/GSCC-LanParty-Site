@@ -29,6 +29,25 @@ class Mysql {
 		
 	}
         
+        function check_username($un) {
+				
+		$query = "SELECT *
+				FROM users
+				WHERE username = ?
+				LIMIT 1";
+				
+		if($stmt = $this->conn->prepare($query)) {
+			$stmt->bind_param('s', $un);
+			$stmt->execute();
+			
+			if($stmt->fetch()) {
+				$stmt->close();
+				return true;
+			}
+		}
+		
+	}
+        
         function add_to_Database($un, $pwd, $rname){
                 $hash = md5($pwd);
                 $add = "INSERT INTO `users`(`username`, `realname`, `password`) VALUES (\"$un\",\"$rname\",'$hash')";

@@ -7,7 +7,7 @@ $register = new Membership();
 
 // Did the user enter a password/username and click submit?
 if($_POST && !empty($_POST['username']) && !empty($_POST['pwd']) && !empty($_POST['pwdc']) && !empty($_POST['realname']))  {
-	$response = $register->register_user($_POST['username'],$_POST['pwd'], $_POST['realname']);
+	$response = $register->register_user($_POST['username'],$_POST['pwd'],$_POST['pwdc'],$_POST['realname']);
 }
 														
 

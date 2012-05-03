@@ -15,8 +15,14 @@ class Membership {
 		
 	} 
 	
-        function register_user($un, $pwd, $rname){
+        function register_user($un, $pwd, $pwdc, $rname){
                 $mysql = New Mysql();
+                $taken = $mysql->check_username($un);
+                if($taken === true){
+                    return "That username was already taken, Try another.";
+                }elseif($pwd != $pwdc){
+                    return "The passwords do not match eachother. Try again.";
+                }
                 $register_user = $mysql->add_to_Database($un, $pwd, $rname);
                 
                 if($register_user){
