@@ -11,8 +11,7 @@ if(isset($_GET['status']) && $_GET['status'] == 'loggedout') {
 // Did the user enter a password/username and click submit?
 if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
 	$response = $membership->validate_User($_POST['username'], $_POST['pwd']);
-}
-														
+}										
 
 ?>
 

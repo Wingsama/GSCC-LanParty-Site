@@ -1,16 +1,13 @@
 <?php
 session_start();
 require_once 'classes/Membership.php';
-$membership = new Membership();
+$register = new Membership();
 
 // If the user clicks the "Log Out" link on the index page.
-if(isset($_GET['status']) && $_GET['status'] == 'loggedout') {
-	$membership->log_User_Out();
-}
 
 // Did the user enter a password/username and click submit?
-if($_POST && !empty($_POST['username']) && !empty($_POST['pwd'])) {
-	$response = $membership->validate_User($_POST['username'], $_POST['pwd']);
+if($_POST && !empty($_POST['username']) && !empty($_POST['pwd']) && !empty($_POST['pwdc']) && !empty($_POST['realname']))  {
+	$response = $register->register_user($_POST['username'],$_POST['pwd'], $_POST['realname']);
 }
 														
 
