@@ -29,6 +29,7 @@ class Mysql {
 		
 	}
         
+        
         function check_username($un) {
 				
 		$query = "SELECT *
