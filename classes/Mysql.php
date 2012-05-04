@@ -50,7 +50,7 @@ class Mysql {
 	}
         
         function add_to_Database($un, $pwd, $rname){
-                $hash = md5($pwd);
+                $hash = crypt($pwd, SALT);
                 $add = "INSERT INTO `users`(`username`, `realname`, `password`) VALUES (\"$un\",\"$rname\",'$hash')";
                 if($this->conn->query($add) === true){
                     return true;
