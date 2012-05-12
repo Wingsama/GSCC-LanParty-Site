@@ -115,6 +115,7 @@ if($_GET && ($_GET['page'] == "register")){
     Name: <input type="text" name="user" />
 <?php
 require_once('./recaptcha/recaptchalib.php');
+require('./classes/Mysql.php');
 $publickey = "6LdTYdESAAAAAI99woZW7Bdr2iu8X7fl7BsIjqp-";
 $privatekey = "6LdTYdESAAAAAE3RMszCykbrHhM34Qe9tGw3E7XZ";
 
@@ -133,7 +134,9 @@ if ($_POST["recaptcha_response_field"]) {
 
         if ($resp->is_valid) {
                 $mysql = New Mysql();
-                $mysql->add_to_Database($_POST['user']);
+                if($mysql->add_to_Database($_POST['user'])){
+                    header("Location: ./index.php");
+                }
         } else {
                 # set the error code so that we can display it
                 $error = $resp->error;
