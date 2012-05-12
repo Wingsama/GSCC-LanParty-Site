@@ -78,7 +78,7 @@ setInterval("displaytime()", 1000)
                         <img class="corner_inset_right" alt="" src="images/corner_inset_right.png"/>
                     </li>
                     <li><a href="./index.php?page=rules">Rules</a></li>
-                    <li><a href="./index.php?page=links">Game Servers</a></li>
+                    <li><a href="./index.php?page=links">Downloads</a></li>
                     <li class="last">
                         <img class="corner_left" alt="" src="images/corner_left.png"/>
                         <img class="middle" alt="" src="images/dot.gif"/>
@@ -107,6 +107,7 @@ setInterval("displaytime()", 1000)
 </div><!--end container-->
 <div id="pagecontents">
 <?php
+
 if($_GET && ($_GET['page'] == "register")){
 ?>
     <b>Registration for TF2 Tournament</b> <br>=====================================================================<br>
@@ -145,7 +146,17 @@ echo recaptcha_get_html($publickey, $error);
     <?php
 }elseif($_GET){
 $pname = $_GET['page'];
-readfile("./pages/$pname.html");
+	if ($pname == "links") {
+		$dir = "downloads";
+		$liPages = scandir($dir);
+		
+		foreach($liPages as $liPage) {
+			if($liPage != "" && $liPage != "." && $liPage !="..") $list .= '<li><a href="/downloads/' . $liPage . '">' . $liPage . '</a></li>';
+		}
+		print $list;
+	} else {
+		readfile("./pages/$pname.html");
+	}
 }else{
     ?><p><b>Hello, and welcome to QuakerCon 2012!</b><br><br><p>Click on a link on the menu bar for more information and rules.</p
     <?php
