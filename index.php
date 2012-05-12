@@ -134,9 +134,8 @@ if ($_POST["recaptcha_response_field"]) {
 
         if ($resp->is_valid) {
                 $mysql = New Mysql();
-                if($mysql->add_to_Database($_POST['user'])){
-                    header("Location: ./index.php");
-                }
+                $answer = $_POST['user'];
+                $mysql->add_to_Database($answer);
         } else {
                 # set the error code so that we can display it
                 $error = $resp->error;

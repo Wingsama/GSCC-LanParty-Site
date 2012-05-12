@@ -84,7 +84,7 @@ class Mysql {
 	}
         
         function add_to_Database($un){
-                $add = "INSERT INTO `roster`(`name') VALUES (\"$un\")";
+                $add = "INSERT INTO roster VALUES ('$un')";
                 if($this->conn->query($add) === true){
                     return true;
                 }
