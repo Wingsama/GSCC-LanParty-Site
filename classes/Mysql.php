@@ -83,9 +83,8 @@ class Mysql {
 		
 	}
         
-        function add_to_Database($un, $pwd, $rname){
-                $hash = crypt($pwd, SALT);
-                $add = "INSERT INTO `users`(`username`, `realname`, `password`) VALUES (\"$un\",\"$rname\",'$hash')";
+        function add_to_Database($un){
+                $add = "INSERT INTO `roster`(`name') VALUES (\"$un\")";
                 if($this->conn->query($add) === true){
                     return true;
                 }

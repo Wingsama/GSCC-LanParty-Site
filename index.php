@@ -86,23 +86,20 @@ setInterval("displaytime()", 1000)
                     </li>
                 </ul>
             </li>
-            <?php /* <li><a href="#">Roster</a>
+            <li><a href="#">Roster</a>
                 
                 <ul id="help">
                     <li>
                         <img class="corner_inset_left" alt="" src="images/corner_inset_left.png"/>
-                        <a href="#">TF2</a>
+                        <a href="./index.php?page=register">Register Here</a>
                         <img class="corner_inset_right" alt="" src="images/corner_inset_right.png"/>
-                    </li>
-                    <li><a href="#">SC2</a></li>
-                    <li><a href="#">LoL</a></li>
-                    <li class="last">
+                    </li>                    <li class="last">
                         <img class="corner_left" alt="" src="images/corner_left.png"/>
                         <img class="middle" alt="" src="images/dot.gif"/>
                         <img class="corner_right" alt="" src="images/corner_right.png"/>
                     </li>
                 </ul>
-            </li>*/ ?>
+            </li>
             <li>Current Server Time: <span id="servertime"></span></li>
         </ul>
         <img style="float:left;" alt="" src="images/menu_right.png"/>
@@ -110,7 +107,43 @@ setInterval("displaytime()", 1000)
 </div><!--end container-->
 <div id="pagecontents">
 <?php
-if($_GET){
+if($_GET && ($_GET['page'] == "register")){
+?>
+    <b>Registration for TF2 Tournament</b> <br>=====================================================================<br>
+    <form action="" method="post">
+    Name: <input type="text" name="user" />
+<?php
+require_once('./recaptcha/recaptchalib.php');
+$publickey = "6LdTYdESAAAAAI99woZW7Bdr2iu8X7fl7BsIjqp-";
+$privatekey = "6LdTYdESAAAAAE3RMszCykbrHhM34Qe9tGw3E7XZ";
+
+# the response from reCAPTCHA
+$resp = null;
+# the error code from reCAPTCHA, if any
+$error = null;
+
+
+# was there a reCAPTCHA response?
+if ($_POST["recaptcha_response_field"]) {
+        $resp = recaptcha_check_answer ($privatekey,
+                                        $_SERVER["REMOTE_ADDR"],
+                                        $_POST["recaptcha_challenge_field"],
+                                        $_POST["recaptcha_response_field"]);
+
+        if ($resp->is_valid) {
+                $mysql = New Mysql();
+                $mysql->add_to_Database($_POST['user']);
+        } else {
+                # set the error code so that we can display it
+                $error = $resp->error;
+        }
+}
+echo recaptcha_get_html($publickey, $error);
+?>
+<br/><input type="submit" value="submit" />
+</form>
+    <?php
+}elseif($_GET){
 $pname = $_GET['page'];
 readfile("./pages/$pname.html");
 }else{
