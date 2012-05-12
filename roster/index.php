@@ -1,7 +1,5 @@
 
 <?php
-require '../classes/Mysql.php';
-$mysql =  New Mysql();
 
 error_reporting(E_ALL);
 
@@ -13,8 +11,15 @@ $GDLIB_INSTALLED = (function_exists("gd_info")) ? true : false;
 
 // Lets create a knock-out tournament between some of our dear physicists.
 
-$competitors = $mysql->grab_array("sc2roster");
-echo $competitors[1];
+$competitors = array("Justin Trinkley",
+"Jordon Friedman",
+"Akkakakaka",
+"Adam Mihalich",
+"Tony Chang",
+"Felix Noonan",
+"Charles Gu",
+"King Ko",
+"Matt Thiemsen");
 
 // Create initial tournament bracket.
 $KO = new KnockoutGD($competitors);
@@ -34,7 +39,7 @@ $KO->setResByMatch(1, 1, 4, 0);*/
 
 // If GD-lib is installed, the below code will draw the bracket of the knock-out tournament.
 if ($GDLIB_INSTALLED) {
-    $im = $KO->getImage("Tournament name here");
+    $im = $KO->getImage("SC2 Tournament");
     header('Content-type: image/png');
     imagepng($im);
     imagedestroy($im);
