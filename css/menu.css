@@ -8,7 +8,7 @@
 
         body { font-family:Arial, Helvetica, Sans-Serif; font-size:12px; margin:0px 20px; background-color: #111;}
         /* menu */
-        #menu{ margin:0px; padding:0px; list-style:none; color:#fff; line-height:45px; display:inline-block; float:left; z-index:1000;}
+        #menu{ margin:0px; padding:0px; list-style:none; color:#fff; line-height:45px; display:inline-block; float:left; z-index:1000; }
         #menu a { color:#fff; text-decoration:none; }
         #menu > li {background:#172322 none repeat scroll 0 0; cursor:pointer; float:left; position:relative;padding:0px 10px;}
         #menu > li a:hover {color:#B0D730;}
@@ -34,3 +34,4 @@
         #menu .corner_left { position:absolute; left:0px; top:0px;}
         #menu .corner_right { position:absolute; left:132px; top:0px;}
         #menu .middle { position:absolute; left:18px; height: 20px; width: 115px; top:0px;}
+       

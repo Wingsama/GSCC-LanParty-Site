@@ -4,20 +4,22 @@ font-family: helvetica, arial, sans-serif;
 
 #pagecontents{
 position: absolute;
-width: 700px;
+width: 500px;
 left: 50%;
-top: 60px;
-margin-left: -300px;
+top: 175px;
+margin-left: -250px;
+
 }
 
 #container{
 position: absolute;
-
-width: 750px;
+background: url(../images/banner.png) no-repeat;
+background-position: 62px 60px;
+width: 625px;
 height: 100%;
 background-color: #C0FFFF;
 left: 50%;
-margin-left: -375px;
+margin-left: -312px;
 }
 
 #login {

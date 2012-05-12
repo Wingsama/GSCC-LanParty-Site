@@ -29,6 +29,20 @@ class Mysql {
 		
 	}
         
+        function grab_array($tablename){
+            $mqquery = "SELECT name FROM $tablename";
+            
+            $result =$this->conn->query($mqquery);
+            $final = array("null");
+            while($row = mysql_fetch_array($result)){
+                array_push($final, $row['name']);
+            }
+            array_shift($final);
+            $row->close();
+            $result->close();
+            return $final;
+        }
+        
         function verify_Admin($un) {
 				
 		$query = "SELECT *

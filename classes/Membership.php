@@ -7,20 +7,23 @@ class Membership {
 	function validate_user($un, $pwd) {
 		$mysql = New Mysql();
 		$ensure_credentials = $mysql->verify_Username_and_Pass($un, crypt($pwd, SALT));
-		$is_admin = $mysql->verify_Admin($un);
-                
 		
-                if($is_admin && $ensure_credentials){
-                            $_SESSION['admin'] = 'authorized';
-                            $_SESSION['status'] = 'authorized';
-                            header("location: index.php");
-                           
-                }elseif($ensure_credentials) {
+                if($ensure_credentials) {
                         $_SESSION['status'] = 'authorized';
 			header("location: index.php");
 		} else return "Please enter a correct username and password";
 		
 	} 
+        function validate_admin($un) {
+		$mysql = New Mysql();
+		$ensure_credentials = $mysql->verify_Admin($un);
+		
+                if($ensure_credentials) {
+                        $_SESSION['status'] = 'authorized';
+			header("location: index.php");
+		} else return "Please enter a correct username and password";
+		
+	}
 	
         function register_user($un, $pwd, $pwdc, $rname){
                 $mysql = New Mysql();
@@ -41,7 +44,7 @@ class Membership {
 	function log_User_Out() {
 		if(isset($_SESSION['status'])) {
 			unset($_SESSION['status']);
-			
+			unset($_SESSION['admin']);
 			if(isset($_COOKIE[session_name()])) 
 				setcookie(session_name(), '', time() - 1000);
 				session_destroy();

@@ -68,17 +68,17 @@ setInterval("displaytime()", 1000)
                 </ul>
                 
             </li>
-            <li><a href="login.php?status=loggedout">Log out</a>
+            <?php /*<li><a href="login.php?status=loggedout">Log out</a>*/ ?>
             </li>
-            <li><a href="#">Information</a>
+            <li><a href="./index.php">Information</a>
                 <ul id="help">
                     <li>
                         <img class="corner_inset_left" alt="" src="images/corner_inset_left.png"/>
-                        <a href='?page=home'>General Info</a>
+                        <a href='./index.php?page=home'>General Info</a>
                         <img class="corner_inset_right" alt="" src="images/corner_inset_right.png"/>
                     </li>
-                    <li><a href="#">Rules</a></li>
-                    <li><a href="#">Game Servers</a></li>
+                    <li><a href="./index.php?page=rules">Rules</a></li>
+                    <li><a href="./index.php?page=links">Game Servers</a></li>
                     <li class="last">
                         <img class="corner_left" alt="" src="images/corner_left.png"/>
                         <img class="middle" alt="" src="images/dot.gif"/>
@@ -86,7 +86,7 @@ setInterval("displaytime()", 1000)
                     </li>
                 </ul>
             </li>
-            <li><a href="#">Roster</a>
+            <?php /* <li><a href="#">Roster</a>
                 
                 <ul id="help">
                     <li>
@@ -102,7 +102,7 @@ setInterval("displaytime()", 1000)
                         <img class="corner_right" alt="" src="images/corner_right.png"/>
                     </li>
                 </ul>
-            </li>
+            </li>*/ ?>
             <li>Current Server Time: <span id="servertime"></span></li>
         </ul>
         <img style="float:left;" alt="" src="images/menu_right.png"/>
@@ -113,6 +113,9 @@ setInterval("displaytime()", 1000)
 if($_GET){
 $pname = $_GET['page'];
 readfile("./pages/$pname.html");
+}else{
+    ?><p><b>Hello, and welcome to QuakerCon 2012!</b><br><br><p>Click on a link on the menu bar for more information and rules.</p
+    <?php
 }
 ?>
 </div>
