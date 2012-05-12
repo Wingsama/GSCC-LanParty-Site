@@ -7,9 +7,16 @@ class Membership {
 	function validate_user($un, $pwd) {
 		$mysql = New Mysql();
 		$ensure_credentials = $mysql->verify_Username_and_Pass($un, crypt($pwd, SALT));
+		$is_admin = $mysql->verify_Admin($un);
+                
 		
-		if($ensure_credentials) {
-			$_SESSION['status'] = 'authorized';
+                if($is_admin && $ensure_credentials){
+                            $_SESSION['admin'] = 'authorized';
+                            $_SESSION['status'] = 'authorized';
+                            header("location: index.php");
+                           
+                }elseif($ensure_credentials) {
+                        $_SESSION['status'] = 'authorized';
 			header("location: index.php");
 		} else return "Please enter a correct username and password";
 		
@@ -45,5 +52,10 @@ class Membership {
 		session_start();
 		if($_SESSION['status'] !='authorized') header("location: login.php");
 	}
+        function confirm_Admin() {
+		session_start();
+		if($_SESSION['admin'] !='authorized') header("location: login.php");
+	}
+       
 	
 }

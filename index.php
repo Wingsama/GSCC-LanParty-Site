@@ -1,12 +1,3 @@
-<?php
-
-require_once 'classes/Membership.php';
-$membership = New Membership();
-
-$membership->confirm_Member();
-
-?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -83,7 +74,7 @@ setInterval("displaytime()", 1000)
                 <ul id="help">
                     <li>
                         <img class="corner_inset_left" alt="" src="images/corner_inset_left.png"/>
-                        <a href="#">General Info</a>
+                        <a href='?page=home'>General Info</a>
                         <img class="corner_inset_right" alt="" src="images/corner_inset_right.png"/>
                     </li>
                     <li><a href="#">Rules</a></li>
@@ -117,6 +108,14 @@ setInterval("displaytime()", 1000)
         <img style="float:left;" alt="" src="images/menu_right.png"/>
     </div>
 </div><!--end container-->
+<div id="pagecontents">
+<?php
+if($_GET){
+$pname = $_GET['page'];
+readfile("./pages/$pname.html");
+}
+?>
+</div>
 </div>
 </body>
 </html>

@@ -2,13 +2,22 @@ body {
 font-family: helvetica, arial, sans-serif;
 }
 
+#pagecontents{
+position: absolute;
+width: 700px;
+left: 50%;
+top: 60px;
+margin-left: -300px;
+}
+
 #container{
 position: absolute;
-width: 800px;
+
+width: 750px;
 height: 100%;
 background-color: #C0FFFF;
 left: 50%;
-margin-left: -400px;
+margin-left: -375px;
 }
 
 #login {

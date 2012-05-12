@@ -29,6 +29,26 @@ class Mysql {
 		
 	}
         
+        function verify_Admin($un) {
+				
+		$query = "SELECT *
+				FROM users
+				WHERE username = ? AND admin = ?
+				LIMIT 1";
+				
+		if($stmt = $this->conn->prepare($query)) {
+			$stmt->bind_param('si', $un, 1);
+			$stmt->execute();
+			
+			if($stmt->fetch()) {
+				$stmt->close();
+				return true;
+			}
+		}
+		
+	}
+        
+
         
         function check_username($un) {
 				
